@@ -7,7 +7,7 @@ class GamesController < ApplicationController
   end
 
   def score
-    @word = params[:word]
+    @word = params[:word].upcase.to_s
     @letters = params[:letters].split(' ')
     url = "https://wagon-dictionary.herokuapp.com/#{@word}"
     data = JSON.parse(open(url).read)
